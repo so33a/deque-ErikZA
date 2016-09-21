@@ -20,5 +20,6 @@ void imprimirFila(FILA f);
 void destroiFila(FILA f);
 int filaVazia(FILA f); 
 int remover2(FILA f);
+void inserir2(FILA f, int e);
 
 #endif 
