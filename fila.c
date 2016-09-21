@@ -108,3 +108,14 @@ int remover2(FILA f){
   free(t);
   return x;
 }
+
+void inserir2(FILA f, int e) {
+    link t;
+  if(f->maisAntigo == NULL) {
+    f->maisAntigo = f->maisNovo = novoNo(e, NULL);
+  } else {
+    t = novoNo(e, NULL);
+    t->next = f->maisAntigo->next;
+    f->maisAntigo->next = t;
+  }
+}
