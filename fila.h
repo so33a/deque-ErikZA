@@ -19,5 +19,6 @@ int remover(FILA f);
 void imprimirFila(FILA f);
 void destroiFila(FILA f);
 int filaVazia(FILA f); 
+int remover2(FILA f);
 
 #endif 
