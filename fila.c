@@ -63,7 +63,7 @@ void destroiFila(FILA f) {
 }
 
 int remover2(FILA f){
-  int x;
+  int x, y=0;
   link t, l, lf;
   if(filaVazia(f)){
     printf ("Erro, a fila esta vazia\n");
@@ -72,21 +72,34 @@ int remover2(FILA f){
   l = f->maisAntigo;
   x = f->maisNovo->item;
   t = f->maisNovo;
-  while(f->maisAntigo->next != f->maisNovo)
+
+  while(f->maisAntigo != f->maisNovo)
   {
-         f->maisAntigo = f->maisAntigo->next;
+        f->maisAntigo = f->maisAntigo->next;
+      if(f->maisAntigo->next == f->maisNovo){
+            system("pause");
          lf = f->maisAntigo;
-
+         f->maisAntigo = f->maisAntigo->next;
+      } else {
+          if(f->maisAntigo == f->maisNovo){
+         lf = l;
+      }
+    }
+    y++;
   }
-    if(f->maisAntigo->next == f->maisNovo)
-        printf("\n%d\n%d\n",f->maisAntigo->item,f->maisNovo->item);
 
+  if ( y != 0 ) {
   f->maisNovo = lf;
   f->maisNovo->next = NULL;
   f->maisAntigo = l;
+  }
 
+    if( y==0 ){
   if(f->maisAntigo == f->maisNovo)
     f->maisAntigo = NULL;
+    }
+
+
 
  if(f->maisAntigo == NULL)
     f->maisNovo = NULL;
